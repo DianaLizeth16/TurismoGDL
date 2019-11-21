@@ -1,0 +1,217 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/11/2019, 11:51:23 AM
+    Author     : Diana
+*/
+
+
+#menu nav {
+	margin:10px auto;
+	width:100%;
+        height:60px;
+	/*max-width:55000px;*/
+}
+#menu nav ul{
+	list-style: none;
+}
+
+#menu nav > ul{
+	display:table;
+	overflow:hidden;
+	width:100%;
+        height:40px;
+	background:rgb(42, 52, 73);
+	position:relative;
+}
+
+#menu nav >ul li{
+	display:table-cell;
+}
+#menu nav > ul > li:hover > ul{
+	display:block;
+	height:75%;
+
+}
+#menu nav >ul > li > ul{
+	display: block;
+	position:absolute;
+	background: rgb(35,75,205);
+	overflow:hidden;
+	height:0%;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+
+}
+/*#menu nav >ul > li > ul{
+	display:none;
+}*/
+#menu nav > ul li a {
+	color:#fff;
+	display:block;
+	line-height:20px;
+	padding:20px;
+	position:relative;
+	text-align:center;
+	text-decoration: none;
+        font-size:20px;
+
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+#menu nav > ul > li > ul > li a:hover{
+	background:rgb(5,76,158);
+}
+
+#menu nav >ul >li > a span{
+	background:rgb(109, 35, 205);
+	display:block;
+	height:100%;
+	width:100%;
+	left:0;
+	position:absolute;
+	top:-55px;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+#menu nav >ul >li > a span .icon {
+	display:block;
+	line-height:60px;
+}
+#menu nav > ul >li > a:hover > span {
+	top:0;
+}
+#menu nav ul li a .primero{
+	background:#C51832;
+}
+#menu nav >ul > li img{
+	height:50px;
+	width:50px;		
+}
+.slider{
+width: 95%;
+margin:auto;
+overflow: hidden;
+}
+.slider ul{
+  display: flex;
+  padding:0;
+  width: 300%;
+  animation: cambio 15s infinite;
+}
+.slider li{
+  width: 100%;
+  list-style: none;
+}
+.slider img{
+  width: 70%
+}
+@keyframes cambio{
+  0%{margin-left: 10}
+  15%{margin-left: 10}
+
+  25%{margin-left:-100%;}
+  45%{margin-left:-100%;}
+}
+.texto{
+	color:white;
+	text-shadow:2px 2px 5px red;
+	text-align: center;
+	font-family: Verdana;
+}
+
+
+.footer{
+		background:rgb(42, 52,73);
+		text-align: center;
+		padding:15px;
+		color:white;		
+		font-size:14px;
+		font-family:book Antiqua;
+
+		}
+              
+
+ 
+ #contenedor{
+     width:300px;
+     height:650px;
+     float:left;
+     margin-top: 20px;
+     margin-right:10px; 
+     background:RGB(42, 52,73);
+     font-size:17px;
+     color:white;
+     font-family:MV Boli;
+      }
+      #contenedor .contenedor2{
+          width:100%;
+          height:80px;
+          font-size: 20px;
+          background:RGB(65, 105, 225);
+          color:black;
+      }
+      #contenedor .contenedor2 > i{
+          width:80px;
+          height:50px;
+          size:100px;
+      }
+      #contenedor img{
+          margin-top:35px;
+          margin-left:35px;
+          width:80%;
+          height:30%;
+      }
+      .lugares{
+          display:flex;
+          magin-top:50px;
+          margin-left:40%; 
+          
+      }
+      
+      .reseniaD textArea{
+            border: 2px solid #990000;
+            magin-top:50px;
+            background:RGB(176, 196, 222); 
+      }
+      #popular img{
+          width:50px;
+           height:50px;
+      }
+      #right-panel{
+          margin-top:90px;
+          margin-left:78%;
+          
+          width:200px;
+          height:150px;
+          background:RGB(42, 52,73);
+          color:white;
+          width:350px;
+          height:280px;
+      }
+      #directions-panel{
+          background:RGB(42, 52,73); 
+          width:350px;
+          height:350px;
+      }
+      
+      #map {
+        height: 84%;
+        width:50%;
+        margin-left:25%;
+        margin-top: -280px;
+      }
+      /* Optional: Makes the sample page fill the window. */

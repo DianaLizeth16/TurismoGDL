@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Localizing the Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+       font-family:MV Boli;
+      }
+    </style>
+  </head>
+  <body>
+   <!-- <form action="http://localhost:8080/TurismoChuy/BuscarLugar" method="post">  -->
+    
+      <div class id="menu">
+<header>
+		<nav>
+			<ul>
+				<li><a href="#"><span class=""><i class="material-icons fa-2x">list</i></span>Menu</a>
+				<ul>
+						<li><a href="lugares.html">AgregarLugares</a></li>
+                                                <li><a href="BuscarLugar.html">BuscarLugares</a></li>
+					</ul>
+					</li>
+
+				<li><a href="inicio.html"><span class="primero"><i class="material-icons fa-2x">account_balance</i></span>Guadalajara Lugares</a> 
+				</li>
+				<li><a href="#"><span class=""><i class="material-icons fa-2x">perm_identity</i></span>Usuario</a>
+					<ul>
+						<li><a href="index.html">Salir</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+</div>
+       <body background="https://danielfriedl.files.wordpress.com/2015/09/fondo-comunion-para-album-classic-pergamino_comuniones-18-classic_1200px.jpg">
+      <div id="contenedor">
+          <div class="contenedor2">
+              <i class="material-icons fa-3x">deck</i>
+              Acerca de Tus lugares</div>
+          <img src="https://images.ctfassets.net/qr8kennq1pom/38076c7bba40/8be791ea753e3fa67efd7f0461804f37/guadalajara-signage.jpg">
+          
+          <p>En el siguiente apartado podrás encontrar tus lugares favoritos y la ruta que puedes tomar para llegar a ellos<p>
+              <br>
+          <p>¿Te gustaría agregar una reseña a tu lugar favorito?<br>Has click aqui<p><br>
+          <center> <button type="button" class="btn btn-outline-primary"><a href="resenia.html">Agregar Reseña</a></button></center>
+      </div>
+      <br><br>
+      
+      <div id="map" style="width:70%; height:70%;"></div>
+          
+    <script>
+    
+      function initMap() {
+       var myLatLng =  {lat: 20.620639, lng: -103.305600};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17.5,
+          center: myLatLng
+        });
+        
+        directionsDisplay.setMap(map);
+        document.getElementById('SubmitMap').addEventListener('click', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var waypts = [];
+		
+		
+               // var checkboxArray = document.getElementById('waypoints');
+		var infoWindow = new google.maps.InfoWindow({map: map});
+        
+		waypts.push({
+              location: lInicial.value,
+              stopover: true
+            });
+			
+		waypts.push({
+              location: lFinal.value,
+              stopover: true
+            });
+		
+		if (navigator.geolocation) {
+		
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            directionsDisplay.getMap().setCenter(pos);
+		
+            var selectedMode = document.getElementById('mode').value;
+            directionsService.route({
+                
+         origin: directionsDisplay.getMap().getCenter(),
+           //origin: document.getElementById('lInicial')).innerHTML , 
+          destination: document.getElementById('lFinal').innerHTML,
+          waypoints:  waypts,
+          optimizeWaypoints: true,
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions-panel');
+            summaryPanel.innerHTML = '';
+            
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                  '</b><br>';
+              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+              summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+			
+          }, function() {
+            handleLocationError(true, infoWindow,  directionsDisplay.getMap().getCenter());
+          });
+        } else {
+          
+          handleLocationError(false, infoWindow,  directionsDisplay.getMap().getCenter());
+        }       
+      }
+      
+
+        
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ9zZDf3U2q36Na6Jd-6z0IXEDgLdKCsA&callback=initMap&language=es&region=JP"
+    async defer>
+    </script>
+    <div class="lugares">
+     <!--   <form action="http://localhost:8080/TurismoChuy/BuscarLugar" method="post">-->
+        <table>
+            <tr>
+                <td><p> Lugar Inicial<p></td><td><p>Lugar Final<p></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="lInicial"></td><td><input type="text" name="lFinal"></td>
+            </tr>
+            <tr>
+             <td colspan="2"><center><input type="submit" class="btn btn-primary" value="Trazar Ruta" name="SubmitMap"></input></center></td>
+            </tr>
+        </table>
+       <!-- </form>-->
+    </div>
+    <br><br>
+    <center><h2>Ahora si podrás visitar todos los lugares que más te gusten!!</h2></center>
+    <br><br>
+    
+  
+    <div class="footer">
+	
+	<h2>Bienvenidos  a Guadalajara La Capitál de la innovación</h2>
+	<p>Guadalajara es la capital y ciudad más grande del estado de Jalisco.<br>
+	Se encuentra en la región central de Jalisco,<br>
+	en el área del Pacífico occidental de México,<br>
+    dentro de la zona geográfica conocida como Valle de Atemajac.</p>  
+</div>
+    <!--</form>-->
+  </body>
+</html>

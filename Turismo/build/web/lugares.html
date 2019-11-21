@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="http://localhost:8080/Turismo/lugares"method="Post">
+        <div class id="menu">
+           <header>
+		<nav>
+			<ul>
+				<li><a href="#"><span class=""><i class="material-icons">list</i></span>Menu</a>
+				<ul>
+						<li><a href="BuscarMapa.html">BuscarMapa</a></li>
+						<li><a href="lugares.html">Añadir Lugar</a></li>
+					</ul>
+					</li>
+
+				<li><a href="inicio.html"><span class="primero"><i class="material-icons">account_balance</i></span>Guadalajara Lugares</a> 
+				</li>
+				<li><a href="#"><span class=""><i class="material-icons">perm_identity</i></span>Usuario</a>
+					<ul>
+						<li><a href="index.html">Salir</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+    </div>   
+       		
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Nombre del Lugar</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="nombre" placeholder="escriba el nombre completo porfavor">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Escriba más detalles de su experiencia en el lugar</label>
+   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="caracteristica"></textarea>
+ 
+  </div>
+ 
+ 
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Categoría</label>
+    
+  <select class="form-control" id="exampleFormControlSelect1" name="categoria">
+     <option>Parque</option>
+      <option>Museo</option>
+      <option>Parque de atracciones</option>
+      <option>Inglesia</option>
+      <option>Arquitectura Antigua</option>
+      <option>Plaza</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Imagen</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="imagen" placeholder="escriba la direccion de la imagen">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Recomendaciones</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="recomendacion" placeholder="escriba las cordenadas porfavor">
+  </div>
+       
+        
+        <br><br><br><br>
+        <center>  <input type="submit" class="btn btn-secondary btn-lg" value="Guardar Lugares"></center>
+       
+    <br><br>
+ <div class="footer">
+	<h1>Bienvenidos  a Guadalajara La Capitál de la innovación</h1>
+	<p>Guadalajara es la capital y ciudad más grande del estado de Jalisco.<br>
+	Se encuentra en la región central de Jalisco,<br>
+	en el área del Pacífico occidental de México,<br>
+    dentro de la zona geográfica conocida como Valle de Atemajac.</p>
+    
+</div>
+        </form> 
+    </body>
+</html>
